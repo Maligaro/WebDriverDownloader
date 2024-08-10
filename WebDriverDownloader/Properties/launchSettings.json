@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "WebDriverDownloader": {
+      "commandName": "Project",
+      "commandLineArgs": "--path \"H:\\Dev\\Temp\\DriverDownloaderTest\\chromedriver.exe\""
+    }
+  }
+}
