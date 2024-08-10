@@ -1,5 +1,5 @@
-﻿using WebDriverDownloader.Model;
-using WebDriverDownloader.Services;
+﻿using WebDriverDownloader.DriverDownloader;
+using WebDriverDownloader.Model;
 using WebDriverDownloader.Utils;
 
 namespace WebDriverDownloader.Chrome;

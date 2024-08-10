@@ -1,9 +1,8 @@
 ﻿using System.Runtime.InteropServices;
 using WebDriverDownloader.Chrome;
 using WebDriverDownloader.Model;
-using WebDriverDownloader.Utils;
 
-namespace WebDriverDownloader.Services;
+namespace WebDriverDownloader.DriverDownloader;
 
 public class WebDriverDownloaderFacade
 {

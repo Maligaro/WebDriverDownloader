@@ -1,5 +1,5 @@
 ﻿using System.IO.Compression;
-using WebDriverDownloader.Services;
+using WebDriverDownloader.DriverDownloader;
 
 namespace WebDriverDownloader.Chrome;
 

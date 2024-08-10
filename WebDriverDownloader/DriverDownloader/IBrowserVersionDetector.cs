@@ -1,6 +1,6 @@
 ﻿using WebDriverDownloader.Model;
 
-namespace WebDriverDownloader.Services;
+namespace WebDriverDownloader.DriverDownloader;
 
 internal interface IBrowserVersionDetector
 {

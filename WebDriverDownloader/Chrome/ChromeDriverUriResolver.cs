@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
+using WebDriverDownloader.DriverDownloader;
 using WebDriverDownloader.Model;
-using WebDriverDownloader.Services;
 
 namespace WebDriverDownloader.Chrome;
 
