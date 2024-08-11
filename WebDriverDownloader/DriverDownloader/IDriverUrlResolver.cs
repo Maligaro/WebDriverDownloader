@@ -5,5 +5,5 @@ namespace WebDriverDownloader.DriverDownloader;
 
 internal interface IDriverUriResolver
 {
-    Uri GetDriverUri(DriverVersion driverVersion, OSPlatform platform, Architecture architecture);
+    Uri GetDriverUri(DriverVersion driverVersion, Platform platform);
 }

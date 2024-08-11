@@ -7,12 +7,11 @@ namespace WebDriverDownloader.Utils
     {
         public static void SystemIsSupported(
             Driver driver,
-            OSPlatform platform,
-            Architecture architecture,
-            IReadOnlySet<(OSPlatform, Architecture)> supportedSystems)
+            Platform platform,
+            IReadOnlySet<Platform> supportedSystems)
         {
-            if (!supportedSystems.Contains((platform, architecture)))
-                throw new NotSupportedException($"System {platform}:{architecture} is not supported for driver {driver}");
+            if (!supportedSystems.Contains(platform))
+                throw new NotSupportedException($"System {platform} is not supported for driver {driver}");
         }
     }
 }

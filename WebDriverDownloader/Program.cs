@@ -25,11 +25,7 @@ public static class Program
             PlatformInfo.ParsePlatform(options.Platform) :
             PlatformInfo.GetCurrentPlatform();
 
-        var architecture = options.Architecture is not null ?
-            ArchitectureInfo.ParseArchitecture(options.Architecture) :
-            ArchitectureInfo.GetCurrentArchitecture();
-
-        await downloader.DownloadDriver(path, version, platform, architecture);
+        await downloader.DownloadDriver(path, version, platform);
     }
 
     private class Options
@@ -45,9 +41,5 @@ You can specity a full version (example ""116.0.5845.96"") or a milestone versio
         [Option('o', "os", Required = false, HelpText = @"Target os for the driver
 If os is not specified downloader will use current os")]
         public string Platform { get; set; }
-
-        [Option('a', "architecture", Required = false, HelpText = @"Target architecture for the driver
-If architecture is not specified downloader will use current architecture")]
-        public string Architecture { get; set; }
     }
 }

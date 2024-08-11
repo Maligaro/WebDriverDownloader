@@ -9,19 +9,30 @@ namespace WebDriverDownloader.Chrome;
 
 internal class ChromeBrowserVersionDetector : IBrowserVersionDetector
 {
+    private static readonly IReadOnlySet<Platform> _registryPlatforms = new HashSet<Platform>()
+    {
+        Platform.Win32,
+        Platform.Win64
+    };
+
+    private static readonly IReadOnlySet<Platform> _terminalPlatforms = new HashSet<Platform>()
+    {
+        Platform.Linux64,
+        Platform.Mac64,
+        Platform.MacArm64,
+    };
 
     public async Task<BrowserVersion> GetInstalledBrowserVersion()
     {
         var platform = PlatformInfo.GetCurrentPlatform();
-        var architecture = ArchitectureInfo.GetCurrentArchitecture();
-        Assert.SystemIsSupported(Driver.Chromedriver, platform, architecture, ChromeBrowserInfo.SupportedPlatforms);
+        Assert.SystemIsSupported(Driver.Chromedriver, platform, ChromeBrowserInfo.SupportedPlatforms);
 
         string chromeVersion;
-        if (platform == OSPlatform.Windows)
+        if (_registryPlatforms.Contains(platform))
         {
             chromeVersion = GetChromeVersionFromRegistry();
         }
-        else if (platform == OSPlatform.Linux || platform == OSPlatform.OSX)
+        else if (_terminalPlatforms.Contains(platform))
         {
             chromeVersion = await GetChromeVersionFromTerminal();
         }

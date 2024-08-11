@@ -29,9 +29,9 @@ public class WebDriverDownloaderFacade
     }
 
 
-    public async Task DownloadDriver(string filePath, DriverVersion version, OSPlatform platform, Architecture architecture)
+    public async Task DownloadDriver(string filePath, DriverVersion version, Platform platform)
     {
-        var uri = _driverUriResolver.GetDriverUri(version, platform, architecture);
+        var uri = _driverUriResolver.GetDriverUri(version, platform);
         await _driverDownloader.DownloadDriver(uri, filePath);
     }
 
