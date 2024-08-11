@@ -8,18 +8,30 @@ internal static class ArchitectureInfo
         { "32", Architecture.X86 },
         { "32bit", Architecture.X86 },
         { "x32", Architecture.X86 },
+        { "x32bit", Architecture.X86 },
 
         { "64", Architecture.X64 },
         { "64bit", Architecture.X64 },
         { "x64", Architecture.X64 },
+        { "x64bit", Architecture.X64 },
 
         { "arm64", Architecture.Arm64 },
         { "arm", Architecture.Arm },
     };
 
     public static Architecture ParseArchitecture(string architecture)
-       => _architectureNames[architecture.Trim().ToLower()];
+    {
+        architecture = architecture.Trim().ToLower();
+        if (!_architectureNames.ContainsKey(architecture))
+        {
+            var validrAchitectures = string.Join(", ", _architectureNames.Select(n => $"\"{n}\""));
+            throw new ArgumentException($"Couldn't find architecture \"{architecture}\", valid architecture names are {validrAchitectures}");
+        }
+
+        return _architectureNames[architecture];
+    }
 
     public static Architecture GetCurrentArchitecture()
         => RuntimeInformation.OSArchitecture;
 }
+ 

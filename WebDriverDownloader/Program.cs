@@ -1,8 +1,7 @@
 ﻿using CommandLine;
-using System.Runtime.InteropServices;
 using WebDriverDownloader.Model;
-using WebDriverDownloader.Services;
 using WebDriverDownloader.Utils;
+using WebDriverDownloader.DriverDownloader;
 
 namespace WebDriverDownloader;
 
