@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices;
-using WebDriverDownloader.Model;
+﻿using WebDriverDownloader.Model;
 
 namespace WebDriverDownloader.Utils
 {

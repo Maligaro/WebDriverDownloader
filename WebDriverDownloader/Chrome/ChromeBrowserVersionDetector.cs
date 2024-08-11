@@ -1,6 +1,5 @@
 ﻿using Microsoft.Win32;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
 using WebDriverDownloader.DriverDownloader;
 using WebDriverDownloader.Model;
 using WebDriverDownloader.Utils;

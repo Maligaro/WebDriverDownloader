@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using WebDriverDownloader.Model;
 
 namespace WebDriverDownloader.Chrome;

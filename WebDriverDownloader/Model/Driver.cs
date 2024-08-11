@@ -1,8 +1,6 @@
-﻿namespace WebDriverDownloader.Model
+﻿namespace WebDriverDownloader.Model;
+public enum Driver
 {
-    public enum Driver
-    {
-        Chromedriver,
-        //Geckodriver,
-    }
+    Chromedriver,
+    //Geckodriver,
 }
