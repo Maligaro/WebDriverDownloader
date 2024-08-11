@@ -32,16 +32,16 @@ public static class Program
 
     private class Options
     {
-        [Option('p', "path", Required = true, HelpText = @"File path for driver download")]
-        public string Path { get; set; }
+        [Option('f', "file", Required = true, HelpText = @"File path for driver download")]
+        public string FilePath { get; set; }
 
         [Option('v', "version", Required = false, HelpText = @"Version of the web driver to download
 If version is not specified downloader will try to detect it from installed browser
-You can specity a full version (example ""116.0.5845.96"") or a milestone version (example ""116"")")]
+For chromedriver you can specity a full version (example ""116.0.5845.96"") or a milestone version (example ""116"")")]
         public string Version { get; set; }
 
-        [Option('o', "platform", Required = false, HelpText = @"Target os for the driver
-If os is not specified downloader will use current os")]
+        [Option('p', "platform", Required = false, HelpText = @"Target operating system for the driver
+If platform is not specified downloader will use current operating system")]
         public string Platform { get; set; }
     }
 }
