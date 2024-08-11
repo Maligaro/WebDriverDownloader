@@ -1,5 +1,6 @@
 ﻿using System.IO.Compression;
 using WebDriverDownloader.DriverDownloader;
+using WebDriverDownloader.Utils;
 
 namespace WebDriverDownloader.Chrome;
 
@@ -10,7 +11,7 @@ internal class ChromeDriverDownloader : IDriverDownloader
         using var zip = await DownloadZip(uri);
         var driverEntry = zip.Entries.FirstOrDefault(e => ChromeBrowserInfo.DriverNameRegex.IsMatch(e.Name)) ?? 
             throw new FileNotFoundException($"Couldn't find chromedriver file in zip {uri}");
-        driverEntry.ExtractToFile(filePath, true);
+        driverEntry.CreateDirectoyAndExtractToFile(filePath);
     }
 
     public async Task<ZipArchive> DownloadZip(Uri uri)

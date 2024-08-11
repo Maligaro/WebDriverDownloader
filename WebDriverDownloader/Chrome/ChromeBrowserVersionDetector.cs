@@ -58,7 +58,12 @@ internal class ChromeBrowserVersionDetector : IBrowserVersionDetector
 
     private async Task<string> GetChromeVersionFromTerminal()
     {
-        var process = Process.Start("google-chrome", "--version");
+        var process = new Process();
+        process.StartInfo.FileName = "google-chrome";
+        process.StartInfo.Arguments = "/C --version"; 
+        process.StartInfo.RedirectStandardOutput = true;
+
+        process.Start();
         await process.WaitForExitAsync();
         var versionInfo = await process.StandardOutput.ReadToEndAsync();
         var fullVersion = ChromeBrowserInfo.VersionRegex.Match(versionInfo).Groups["value"].Value;

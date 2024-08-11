@@ -25,7 +25,9 @@ public static class Program
             PlatformInfo.ParsePlatform(options.Platform) :
             PlatformInfo.GetCurrentPlatform();
 
+        Console.WriteLine(@$"Downloading webdriver for {platform} into {path}");
         await downloader.DownloadDriver(path, version, platform);
+        System.Console.WriteLine("Download complete");
     }
 
     private class Options
@@ -38,7 +40,7 @@ If version is not specified downloader will try to detect it from installed brow
 You can specity a full version (example ""116.0.5845.96"") or a milestone version (example ""116"")")]
         public string Version { get; set; }
 
-        [Option('o', "os", Required = false, HelpText = @"Target os for the driver
+        [Option('o', "platform", Required = false, HelpText = @"Target os for the driver
 If os is not specified downloader will use current os")]
         public string Platform { get; set; }
     }

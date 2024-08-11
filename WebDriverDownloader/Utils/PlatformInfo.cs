@@ -18,8 +18,8 @@ internal static class PlatformInfo
         { "mac", Platform.Mac64 },
         { "mac64", Platform.Mac64 },
 
-        { "macArm", Platform.MacArm64 },
-        { "macArm64", Platform.MacArm64 },
+        { "macarm", Platform.MacArm64 },
+        { "macarm64", Platform.MacArm64 },
     };
 
     public static Platform ParsePlatform(string platformName)
@@ -30,7 +30,7 @@ internal static class PlatformInfo
             var validPlatformNames = _platformNames
                 .GroupBy(n => n.Value)
                 .Select(g => $"{g.Key} : {string.Join(", ", g.Select(v => v.Key.ToString()))}");
-            throw new ArgumentException($"Couldn't parse platform \"{platformName}\"\n, valid platforms are:\n{string.Join("\n", validPlatformNames)}");
+            throw new ArgumentException($"Couldn't parse platform \"{platformName}\" valid platforms are:\n{string.Join("\n", validPlatformNames)}");
         }
         return _platformNames[platformName];
     }
