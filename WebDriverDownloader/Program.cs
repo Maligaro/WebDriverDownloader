@@ -15,7 +15,7 @@ public static class Program
 
         var downloader = new WebDriverDownloaderFacade(Driver.Chromedriver);
 
-        var path = options.Path;
+        var path = options.FilePath;
 
         var version = options.Version is not null ?
             new DriverVersion(options.Version) :
