@@ -25,7 +25,7 @@ public static class Program
             PlatformInfo.ParsePlatform(options.Platform) :
             PlatformInfo.GetCurrentPlatform();
 
-        Console.WriteLine(@$"Downloading webdriver version {version} for {platform} into {path}");
+        Console.WriteLine(@$"Downloading webdriver version {version.Value} for {platform} into {path}");
         await downloader.DownloadDriver(path, version, platform);
         System.Console.WriteLine("Download complete");
     }
